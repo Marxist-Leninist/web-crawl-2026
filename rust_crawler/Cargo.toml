@@ -1,0 +1,30 @@
+[package]
+name = "crawl_rust"
+version = "1.0.0"
+edition = "2021"
+
+[[bin]]
+name = "crawl_rust"
+path = "src/main.rs"
+
+[dependencies]
+tokio = { version = "1", features = ["full"] }
+reqwest = { version = "0.12", features = ["gzip", "deflate", "brotli", "json"] }
+scraper = "0.22"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+flate2 = "1"
+md-5 = "0.10"
+regex = "1"
+rand = "0.8"
+url = "2"
+urlencoding = "2"
+dashmap = "6"
+bytes = "1"
+lazy_static = "1"
+chrono = "0.4"
+
+[profile.release]
+opt-level = 3
+lto = "thin"
+codegen-units = 4
